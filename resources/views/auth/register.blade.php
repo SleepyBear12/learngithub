@@ -1,0 +1,14 @@
+<x-guest-layout>
+    <div class="auth-shell register-shell">
+        <section class="auth-intro"><a class="brand-mark" href="{{ url('/') }}"><span><i class="bi bi-lightning-charge-fill"></i></span> EVChargeHub</a><div class="intro-copy"><div class="eyebrow"><span></span> Mulai perjalanan Anda</div><h1>Energi baru untuk<br><em>hari yang lebih jauh.</em></h1><p>Buat akun dan nikmati pengalaman charging yang lebih mudah, cepat, dan transparan.</p></div><div class="feature-note"><i class="bi bi-check2-circle"></i><span><strong>Gratis untuk bergabung</strong><small>Kelola semua kebutuhan charging Anda.</small></span></div><div class="orb orb-one"></div><div class="orb orb-two"></div></section>
+        <section class="auth-panel"><div class="mobile-brand"><a class="brand-mark" href="{{ url('/') }}"><span><i class="bi bi-lightning-charge-fill"></i></span> EVChargeHub</a></div><div class="auth-heading"><div class="auth-icon"><i class="bi bi-person-plus"></i></div><small>AKUN BARU</small><h2>Daftar sebagai pengguna</h2><p>Isi data Anda untuk mulai menggunakan EVChargeHub.</p></div>@if ($errors->any())<div class="auth-alert">{{ $errors->first() }}</div>@endif
+            <form method="POST" action="{{ route('register') }}" class="auth-form">@csrf
+                <label class="field-label" for="name">Nama lengkap</label><div class="input-wrap"><i class="bi bi-person"></i><input id="name" type="text" name="name" value="{{ old('name') }}" placeholder="Nama lengkap Anda" required autofocus autocomplete="name"></div>
+                <label class="field-label" for="email">Email</label><div class="input-wrap"><i class="bi bi-envelope"></i><input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="nama@email.com" required autocomplete="username"></div>
+                <label class="field-label" for="phone">Nomor telepon</label><div class="input-wrap"><i class="bi bi-phone"></i><input id="phone" type="tel" name="phone" value="{{ old('phone') }}" placeholder="08xxxxxxxxxx" required autocomplete="tel"></div>
+                <div class="form-grid"><div><label class="field-label" for="password">Kata sandi</label><div class="input-wrap"><i class="bi bi-lock"></i><input id="password" type="password" name="password" placeholder="Minimal 8 karakter" required autocomplete="new-password"></div></div><div><label class="field-label" for="password_confirmation">Konfirmasi</label><div class="input-wrap"><i class="bi bi-lock-fill"></i><input id="password_confirmation" type="password" name="password_confirmation" placeholder="Ulangi sandi" required autocomplete="new-password"></div></div></div>
+                <button class="submit-button" type="submit">Buat akun pengguna <i class="bi bi-arrow-up-right"></i></button>
+            </form><p class="auth-switch">Sudah punya akun? <a href="{{ route('login') }}">Masuk di sini</a></p>
+        </section>
+    </div>
+</x-guest-layout>
